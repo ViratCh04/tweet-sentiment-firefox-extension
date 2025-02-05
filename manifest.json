@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Tweet Sentiment Analyzer",
+    "version": "1.0",
+    "description": "Analyze the sentiment of tweets and display results beside them.",
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["https://*/*", "http://localhost:8000/*"],
+    "content_scripts": [
+        {
+        "matches": ["*://x.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "icons": {
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+        "48": "icon.png"
+        }
+    }
+}
